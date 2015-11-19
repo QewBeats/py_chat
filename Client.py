@@ -14,4 +14,4 @@ for request in range(1,10):
     message = socket.recv()
     print("Server says " , message)
 
-//this is a comment
+#this is a comment
