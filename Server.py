@@ -1,24 +1,44 @@
 import zmq
 import time
 
+class Server():
 
-# first create a context it is required
-context = zmq.Context()
+     # first create a context it is required
 
-# create a response socket [Response socket are mostly for serves ]
-socket = context.socket(zmq.REP)
+    context=None
+    socket=None
 
-# listen on tcp port 2000
-socket.bind("tcp://*:2000")
+    # create a response socket [Response socket are mostly for serves ]
 
 
-while True:
+    @staticmethod
+    def start():
+        Server.context = zmq.Context()
+        Server.socket = Server.context.socket(zmq.REP)
+        Server.socket.bind("tcp://*:2000")
+
+    # listen on tcp port 2000
+        #self.socket.bind("tcp://*:2000")
+       # yan="3"
+    @staticmethod
+    def send_message(message):
+        Server.socket.send_string(message)
+
+    @staticmethod
+    def recv_message():
+
+        return Server.socket.recv_string()
+
+
+
+
+
+
+
+
+    #while True:
     # wait for next request from client
-    # will block till a message is received from the client
-    message = socket.recv()
-    print("The message from client is :", message)
-    time.sleep(1)
-    socket.send("Server says hi")
-
-
+    # will block till a message is received from the clien
+    #print("client says",recv_message())
+    #send_message("servers greet you")
 
