@@ -51,3 +51,7 @@ Server Send Message [Algorithm]
 5. Send the message
 
 
+NOTE: Hash table is same as dictionary 
+:w
+
+
