@@ -10,13 +10,13 @@ Client Send Message [Algorithm]
     Frame[1] = Delimiter (Should be and empty Frame)
     Frame[2] = Details about the client [This should be an xml Document, see  client Detail for further information]
     Frame[3] = Delimiter (Should be and empty Frame)
-    Frame[4] = Type of Message Been Sent e.g File,ScreenShot [ The type should be kept short to prevent data wastage ] 
+    Frame[4] = Type of Message being Sent e.g File,ScreenShot [ The type should be kept short to prevent data wastage ] 
     Frame[5] = Delimiter (Should be and Empty Frame)
     Frame[6] = Payload [The message itself]
 
 
 Client Details [Algorithm]
-1. The clients details should be an XML format string  containing  the ComputerName,Username,UniqueID and IPAddress
+1. The clients details should be an in a format like  ComputerName,Username,UniqueID, IPAddress
 2. Every message (Frame) sent will contain the ID of the Client in Frame[0] and the client Details in Frame[2] 
 
 
@@ -39,7 +39,7 @@ Sever Received Message [Algorithm]
 1.Extract the Id at Frame[0]
 2.Extract Client Details at Frame[2]
 3. If Id (Frame[0]) not in hashTable add it as key 
-4.Add Client Details Frame[2] as Value
+4.Add Client Details Frame[2] as Value in the hashtable
 5. Determine Message Type Frame[4]
 6. Extract Message Frame[6]
 
